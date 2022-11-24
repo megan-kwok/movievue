@@ -33,7 +33,7 @@ axios(getMovies)
             <option value="497582">Enola Holmes II</option>
         </select>
         <button @click="getMovies">Get</button>
-        <!-- <div v-if="response" class="movies-container">
+        <div v-if="response" class="movies-container">
         <h1>{{ response.movies.title }}</h1>
         <p>{{ response.overview }}</p>
         <p>{{ response.runtime }}</p>
@@ -44,7 +44,7 @@ axios(getMovies)
         <p>{{ response.original_language }}</p>
         <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +     response.poster_path" width='100px'>
         <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +     response.backdrop_path" width='100px'> -->
-    <!-- </div> -->
+    </div>
 </template>
  
 <style scoped>
