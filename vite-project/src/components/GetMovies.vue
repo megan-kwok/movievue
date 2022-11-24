@@ -3,13 +3,14 @@ import { ref } from "vue"
 import axios from "axios"
  
 const movies = ref("");
-const response = ref(null);
+const movie = ref(null);
  
-const getMovies = async () => {
-   response.value = (
+const getMovies = async (id) => {
+   movie.value = (
   await axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
     params: {
       api_key: "26ca7d300d9e397095fa7e1435f5eb3d",
+      id: true,
     },
   })
 ).data;
@@ -20,6 +21,7 @@ axios(getMovies)
 </script>
  
 <template>
+  <div class="movies-container">
       <select v-model="movies" id="movies">
             <option value="483455">Dead Apple</option>
             <option value="198663">The Maze Runner</option>
@@ -33,7 +35,7 @@ axios(getMovies)
             <option value="497582">Enola Holmes II</option>
         </select>
         <button @click="getMovies">Get</button>
-        <div v-if="response" class="movies-container">
+        <div v-if="movie">
         <h1>{{ response.movies.title }}</h1>
         <p>{{ response.overview }}</p>
         <p>{{ response.runtime }}</p>
@@ -42,9 +44,10 @@ axios(getMovies)
         <p>{{ response.budget }}</p>
         <p>{{ response.vote_average }}</p>
         <p>{{ response.original_language }}</p>
-        <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +     response.poster_path" width='100px'>
-        <img v-bind:src="'http://image.tmdb.org/t/p/w500/' +     response.backdrop_path" width='100px'> -->
+        <img v-bind:src="'http://image.tmdb.org/t/p/w500/' + response.poster_path" width='100px'>
+        <img v-bind:src="'http://image.tmdb.org/t/p/w500/' + response.backdrop_path" width='100px'> 
     </div>
+  </div>
 </template>
  
 <style scoped>
