@@ -51,6 +51,9 @@ const getMovies = async () => {
 </template>
  
 <style scoped>
+body {
+  background-color: rgb(143, 72, 139);
+}
 .select-container {
   display: grid;
   grid-template-columns: repeat (10 , 1fr);

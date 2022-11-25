@@ -13,6 +13,7 @@ import GetMovies from "./components/GetMovies.vue";
 <style scoped>
 .app-container {
   background-color: rgb(143, 72, 139);
+  width: 100vw;
+  height: 100vh;
 }
 </style>
-
